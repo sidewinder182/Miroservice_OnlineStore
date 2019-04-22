@@ -1,0 +1,5 @@
+{
+	"CatalogServer" : "192.168.0.9:8913",
+	"OrderServer" : "192.168.0.9:8911",
+	"FrontEndServer" : "192.168.0.9:8912"
+}
