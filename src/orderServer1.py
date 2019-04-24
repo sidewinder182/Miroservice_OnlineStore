@@ -4,10 +4,10 @@ import requests
 import json
 from datetime import datetime
 import time
+import threading
 
 
-
-
+lock = threading.Lock()
 orderServer1 = Flask(__name__)
 with open('config.json') as json_file:
 	data = json.load(json_file)
@@ -114,8 +114,36 @@ def heartbeat():
 	print(flags)
 	return(jsonify({'updates_flags' : True}))
 
+@orderServer1.route("/sync/",methods=['GET'])
+def sync():
+	a = []
+	lock.acquire()
+	try:
+		fieldnames = ['ItemNumber', 'Title','Cost','Timestamp']
+		with open('orders1.csv') as f:
+			a = [{k: v for k, v in row.items()} for row in csv.DictReader(f, fieldnames = fieldnames)]
+	except:
+		print("File Error")
+	finally:
+		lock.release()
+	# print(a)
+	return jsonify(a)
 
 if __name__ == "__main__":
+	try:
+		print('syncing')
+		sync_url = 'http://' + orderIP2 + ':' + orderPort2 + '/sync/'
+		sync_request = requests.get(sync_url, timeout = 10)
+		sync_data = sync_request.json()
+		# print(sync_data)
+		fieldnames = ['ItemNumber', 'Title','Cost','Timestamp']
+		f = open("orders1.csv", "w")
+		writer = csv.DictWriter(f, fieldnames=fieldnames)
+		# writer.writeheader()
+		writer.writerows(sync_data)
+		f.close()
+	except(requests.exceptions.ConnectionError):
+		print('unable to sync because orderServer1 is not up')
 	with open('config.json') as json_file:
 		data = json.load(json_file)
 		portnum = data['OrderServer1'].split(":")[1] # Read port number from config file

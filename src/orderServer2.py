@@ -4,9 +4,9 @@ import requests
 import json
 from datetime import datetime
 import time
+import threading
 
-
-
+lock = threading.Lock()
 orderServer2 = Flask(__name__)
 with open('config.json') as json_file:
 	data = json.load(json_file)
@@ -64,8 +64,8 @@ def buy(item_number):
 				new_row = {'ItemNumber' : resp['ItemNumber'], 'Title' : resp['Title'], 'Cost' : resp['Cost'], 'Timestamp' : datetime.now().strftime("%d-%b-%Y (%H:%M:%S.%f)")}
 				fieldnames = ['ItemNumber', 'Title','Cost','Timestamp']
 				with open('orders2.csv', 'a') as csvfile: # Write the updated stock value to the catalog file
-				    writer = csv.DictWriter(csvfile, fieldnames = fieldnames)
-				    writer.writerow(new_row)
+					writer = csv.DictWriter(csvfile, fieldnames = fieldnames)
+					writer.writerow(new_row)
 				update_url = 'http://' + orderIP1 + ':' + orderPort1 + '/update_order/'
 				try:
 					if flags['order1'] == 1:
@@ -110,7 +110,36 @@ def heartbeat():
 	print(flags)
 	return(jsonify({'updates_flags' : True}))
 
+@orderServer2.route("/sync/",methods=['GET'])
+def sync():
+	a = []
+	lock.acquire()
+	try:
+		fieldnames = ['ItemNumber', 'Title','Cost','Timestamp']
+		with open('orders2.csv') as f:
+			a = [{k: v for k, v in row.items()} for row in csv.DictReader(f, fieldnames = fieldnames)]
+	except:
+		print("File Error")
+	finally:
+		lock.release()
+	# print(a)
+	return jsonify(a)
+
 if __name__ == "__main__":
+	try:
+		print('syncing')
+		sync_url = 'http://' + orderIP1 + ':' + orderPort1 + '/sync/'
+		sync_request = requests.get(sync_url, timeout = 10)
+		sync_data = sync_request.json()
+		# print(sync_data)
+		fieldnames = ['ItemNumber', 'Title','Cost','Timestamp']
+		f = open("orders2.csv", "w")
+		writer = csv.DictWriter(f, fieldnames=fieldnames)
+		# writer.writeheader()
+		writer.writerows(sync_data)
+		f.close()
+	except(requests.exceptions.ConnectionError):
+		print('unable to sync because orderServer1 is not up')
 	with open('config.json') as json_file:
 		data = json.load(json_file)
 		portnum = data['OrderServer2'].split(":")[1] # Read port number from config file
