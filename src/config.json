@@ -1,7 +1,7 @@
 {
-	"CatalogServer1" : "192.168.0.9:8913",
-	"CatalogServer2" : "192.168.0.9:8914",
-	"OrderServer1" : "192.168.0.9:8911",
-	"OrderServer2" : "192.168.0.9:8915",
-	"FrontEndServer" : "192.168.0.9:8912"
+	"CatalogServer1" : "128.119.243.147:8913",
+	"CatalogServer2" : "128.119.243.164:8914",
+	"OrderServer1" : "128.119.243.147:8911",
+	"OrderServer2" : "128.119.243.164:8915",
+	"FrontEndServer" : "128.119.243.168:8912"
 }
