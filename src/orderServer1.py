@@ -18,6 +18,11 @@ with open('config.json') as json_file:
 	orderIP2 = data['OrderServer2'].split(":")[0]
 	orderPort2 = data['OrderServer2'].split(":")[1]
 current_catalog_server = 0
+flags = {}
+flags['catalog1'] = 1
+flags['catalog2'] = 1
+flags['order1'] = 1
+flags['order2'] = 1
 
 @orderServer1.route("/")
 def index():
@@ -82,6 +87,15 @@ def update_order():
 	resp = {}
 	resp['updated'] = True
 	return jsonify(resp)
+
+
+@orderServer1.route("/heartbeat/",methods=['PUT'])
+def heartbeat():
+	global flags
+	posted_json = request.get_json()
+	flags = json.loads(posted_json)
+	print(flags)
+	return(jsonify({'updates_flags' : True}))
 
 
 if __name__ == "__main__":

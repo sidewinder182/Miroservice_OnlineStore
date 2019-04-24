@@ -5,6 +5,8 @@ import requests
 import json
 import time
 import random
+import threading
+import time
 
 # cache = {}
 
@@ -23,6 +25,16 @@ with open('config.json') as json_file:
 	orderPort2 = data['OrderServer2'].split(":")[1]
 current_order_server = 0
 current_catalog_server = 0
+flags = {}
+flags['catalog1'] = 1
+flags['catalog2'] = 1
+flags['order1'] = 1
+flags['order2'] = 1
+urls = {}
+urls['catalog1'] = 'http://' + catalogIP1 + ':' + catalogPort1
+urls['catalog2'] = 'http://' + catalogIP2 + ':' + catalogPort2
+urls['order1'] = 'http://' + orderIP1 + ':' + orderPort1
+urls['order2'] = 'http://' + orderIP2 + ':' + orderPort2
 
 @frontEndServer.route("/")
 def index():
@@ -100,9 +112,50 @@ def invalidate(itemNumber):
 	print('invalidated')
 	return jsonify(response_dict)
 
+def heartbeat():
+	global flags, urls
+	print('starting heartbeat thread')
+	while True:
+		time.sleep(10)
+		try:
+			r = requests.get(urls['catalog1'])
+			flags['catalog1'] = 1
+		except:
+			flags['catalog1'] = 0
+			print('catalog1 down')
+		try:
+			r = requests.get(urls['catalog2'])
+			flags['catalog2'] = 1
+		except:
+			flags['catalog2'] = 0
+			print('catalog2 down')
+		try:
+			r = requests.get(urls['order1'])
+			flags['order1'] = 1
+		except:
+			flags['order1'] = 0
+			print('order1 down')
+		try:
+			r = requests.get(urls['order2'])
+			flags['order2'] = 1
+		except:
+			flags['order2'] = 0
+			print('order2 down')
+		flags_json = json.dumps(flags)
+		for key in flags:
+			if flags[key] == 1:
+				with frontEndServer.app_context():
+					try:
+						r = requests.put(urls[key] + '/heartbeat/', json = flags_json)
+					except requests.exceptions.ConnectionError:
+						'Server crashed during heartbeat'
 
 if __name__ == "__main__":
 	with open('config.json') as json_file:
 		data = json.load(json_file)
 		portnum = data['FrontEndServer'].split(":")[1]
-	frontEndServer.run(host = '0.0.0.0',port = portnum,debug = False,threaded = True)
+	# frontEndServer.run(host = '0.0.0.0',port = portnum,debug = False,threaded = True)
+	serverThread = threading.Thread(target = frontEndServer.run,kwargs = {'host' : '0.0.0.0','port' : portnum,'threaded':True}) # This is the server thread
+	heartbeatThread = threading.Thread(target = heartbeat)
+	serverThread.start()
+	heartbeatThread.start()

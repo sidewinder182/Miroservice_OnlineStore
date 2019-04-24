@@ -17,6 +17,11 @@ with open('config.json') as json_file:
 	orderIP1 = data['OrderServer1'].split(":")[0]
 	orderPort1 = data['OrderServer1'].split(":")[1]
 current_catalog_server = 1
+flags = {}
+flags['catalog1'] = 1
+flags['catalog2'] = 1
+flags['order1'] = 1
+flags['order2'] = 1
 
 @orderServer2.route("/")
 def index():
@@ -59,8 +64,8 @@ def buy(item_number):
 			new_row = {'ItemNumber' : resp['ItemNumber'], 'Title' : resp['Title'], 'Cost' : resp['Cost'], 'Timestamp' : datetime.now().strftime("%d-%b-%Y (%H:%M:%S.%f)")}
 			fieldnames = ['ItemNumber', 'Title','Cost','Timestamp']
 			with open('orders2.csv', 'a') as csvfile: # Write the updated stock value to the catalog file
-			    writer = csv.DictWriter(csvfile, fieldnames = fieldnames)
-			    writer.writerow(new_row)
+				writer = csv.DictWriter(csvfile, fieldnames = fieldnames)
+				writer.writerow(new_row)
 			update_url = 'http://' + orderIP1 + ':' + orderPort1 + '/update_order/'
 			update_request = requests.post(update_url, json = new_row)
 			print(update_request)
@@ -81,6 +86,14 @@ def update_order():
 	resp = {}
 	resp['updated'] = True
 	return jsonify(resp)
+
+@orderServer2.route("/heartbeat/",methods=['PUT'])
+def heartbeat():
+	global flags
+	posted_json = request.get_json()
+	flags = json.loads(posted_json)
+	print(flags)
+	return(jsonify({'updates_flags' : True}))
 
 if __name__ == "__main__":
 	with open('config.json') as json_file:

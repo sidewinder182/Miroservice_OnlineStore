@@ -16,6 +16,11 @@ with open('config.json') as json_file:
 	frontEndPort = data['FrontEndServer'].split(":")[1]
 	catalogIP2 = data['CatalogServer2'].split(":")[0] # IP and port number of the catalog server, useful to trigger the restock method
 	catalogPort2 = data['CatalogServer2'].split(":")[1]
+flags = {}
+flags['catalog1'] = 1
+flags['catalog2'] = 1
+flags['order1'] = 1
+flags['order2'] = 1
 
 @catalogServer1.route("/")
 def index():
@@ -179,6 +184,14 @@ def update(item_and_stock):
 	finally:
 		lock.release() # Release the lock
 	return jsonify(ret_dict)
+
+@catalogServer1.route("/heartbeat/",methods=['PUT'])
+def heartbeat():
+	global flags
+	posted_json = request.get_json()
+	flags = json.loads(posted_json)
+	print(flags)
+	return(jsonify({'updates_flags' : True}))
 
 if __name__ == "__main__":
 	with open('config.json') as json_file:
