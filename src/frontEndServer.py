@@ -46,15 +46,19 @@ def index():
 def search(topic):
 	'''This method forwards an incoming search request to the catalog server, and returns the response received
 	from it to the caller.'''
-	global current_catalog_server
-	if current_catalog_server == 0:
+	global current_catalog_server, flags
+	if current_catalog_server == 0 and flags['catalog1'] == 1:
 		current_catalog_server = 1
 		url = 'http://' + catalogIP1 + ':' + catalogPort1 + '/search/' + topic
 		print('chose catalog server 1 for search')
-	else:
+	elif flags['catalog2'] == 1:
 		current_catalog_server = 0
 		url = 'http://' + catalogIP2 + ':' + catalogPort2 + '/search/' + topic
 		print('chose catalog server 2 for search')
+	else:
+		current_catalog_server = 1
+		url = 'http://' + catalogIP1 + ':' + catalogPort1 + '/search/' + topic
+		print('chose catalog server 1 for search')
 	r = requests.get(url)
 	frontEndResponse = r.json()
 	return jsonify(frontEndResponse)
@@ -65,17 +69,25 @@ def search(topic):
 def lookup(itemNumber):
 	'''This method forwards an incoming lookup request to the catalog server, and returns the response received
 	from it to the caller.'''
-	global current_catalog_server
-	if current_catalog_server == 0:
+	global current_catalog_server, flags
+	if current_catalog_server == 0 and flags['catalog1'] == 1:
 		current_catalog_server = 1
 		url = 'http://' + catalogIP1 + ':' + catalogPort1 + '/lookup/' + itemNumber
 		print('chose catalog server 1 for lookup')
-	else:
+	elif flags['catalog2'] == 1:
 		current_catalog_server = 0
 		url = 'http://' + catalogIP2 + ':' + catalogPort2 + '/lookup/' + itemNumber
 		print('chose catalog server 2 for lookup')
+	else:
+		current_catalog_server = 1
+		url = 'http://' + catalogIP1 + ':' + catalogPort1 + '/lookup/' + itemNumber
+		print('chose catalog server 1 for lookup')
 	# start = time.time()
-	r = requests.get(url)
+	try:
+		r = requests.get(url, timeout = 5)
+	except (requests.exceptions.Timeout, requests.exceptions.ConnectionError):
+		response_dict = {}
+		return jsonify(response_dict)
 	# end = time.time()
 	# time_taken = end - start
 	# print('Lookup took ',time_taken,' seconds\n')
@@ -86,17 +98,25 @@ def lookup(itemNumber):
 def buy(itemNumber):
 	'''This method forwards an incoming buy request to the order server, and returns the response received
 	from it to the caller.'''
-	global current_order_server
-	if current_order_server == 0:
+	global current_order_server, flags
+	if current_order_server == 0 and flags['order1'] == 1:
 		current_order_server = 1
 		url = 'http://' + orderIP1 + ':' + orderPort1 + '/buy/' + itemNumber
 		print('chose order server 1 for buy')
-	else:
+	elif flags['order2'] == 1:
 		current_order_server = 0
 		url = 'http://' + orderIP2 + ':' + orderPort2 + '/buy/' + itemNumber
 		print('chose order server 2 for buy')
+	else:
+		current_order_server = 1
+		url = 'http://' + orderIP1 + ':' + orderPort1 + '/buy/' + itemNumber
+		print('chose order server 1 for buy')
 	# start = time.time()
-	r = requests.get(url)
+	try:
+		r = requests.get(url, timeout = 5)
+	except (requests.exceptions.Timeout, requests.exceptions.ConnectionError):
+		return jsonify({'Result' : 0})
+
 	# end = time.time()
 	# time_taken = end - start
 	# print('Buy took ',time_taken,' seconds\n')
