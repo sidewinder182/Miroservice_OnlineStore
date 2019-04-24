@@ -65,31 +65,33 @@ def buy():
     urlCatalog1 = ''
     urlFrontEnd = ''
     lock.acquire() # Acquire lock
-    try:
-        with open('catalog2.csv','r') as csvfile: # Read catalog file, check for match with the specified item number and check its stock
-            catalogreader = csv.DictReader(csvfile)
-            for row in catalogreader:
-                # print(row)
-                new_row = dict(row)
-                if row['ItemNumber'] == item_number and int(row['Stock']) > 0: # If match and in stock, decrement stock value
-                    new_row['Stock'] = str(int(row['Stock']) - 1)
-                    d['Result'] = '1'
-                    urlCatalog2 = 'http://' + catalogIP1 + ':' + catalogPort1 + '/update/' + row['ItemNumber'] + ':' + new_row['Stock']
-                    urlFrontEnd = 'http://' + frontEndIP + ':' + frontEndPort + '/invalidate/' + row['ItemNumber']
-                    print('reached here')
-                new_rows.append(new_row)
+    # try:
+    with open('catalog2.csv','r') as csvfile: # Read catalog file, check for match with the specified item number and check its stock
+        catalogreader = csv.DictReader(csvfile)
+        for row in catalogreader:
+            # print(row)
+            new_row = dict(row)
+            if row['ItemNumber'] == item_number and int(row['Stock']) > 0: # If match and in stock, decrement stock value
+                new_row['Stock'] = str(int(row['Stock']) - 1)
+                urlCatalog1 = 'http://' + catalogIP1 + ':' + catalogPort1 + '/update/' + row['ItemNumber'] + ':' + 'buy'
+                r_catalog1 = requests.put(urlCatalog1, timeout = 5)
+                urlFrontEnd = 'http://' + frontEndIP + ':' + frontEndPort + '/invalidate/' + row['ItemNumber']
+                print('new stock = ' + new_row['Stock'])
+            new_rows.append(new_row)
 
-            fieldnames = ['ItemNumber', 'Title','Topic','Cost','Stock']
-            with open('catalog2.csv', 'w') as csvfile: # Write changes to catalog file
-                writer = csv.DictWriter(csvfile,fieldnames = fieldnames)
-                writer.writeheader()
-                writer.writerows(new_rows)
-            r_frontEnd = requests.delete(urlFrontEnd)
-            r_catalog2 = requests.put(urlCatalog2)
-    except:
-        print("File error occured\n")
-    finally:
-        lock.release() # Release lock
+    fieldnames = ['ItemNumber', 'Title','Topic','Cost','Stock']
+    with open('catalog2.csv', 'w') as csvfile: # Write changes to catalog file
+        writer = csv.DictWriter(csvfile,fieldnames = fieldnames)
+        writer.writeheader()
+        writer.writerows(new_rows)
+    r_frontEnd = requests.delete(urlFrontEnd)
+    d['Result'] = '1'
+    # except requests.exceptions.Timeout:
+    #     print('timeout exception occured')
+    # except:
+    #     print("File error occured\n")
+    # finally:
+    lock.release() # Release lock
     return jsonify(d)
 
 def checkAndRestock():
@@ -124,7 +126,8 @@ def restock():
                     if int(row['Stock']) <= 0: # If found item out of stock, restock it.
                         new_row['Stock'] = '50'
                         print('Restocked the book : ' + row['Title'])
-                        urlCatalog2 = 'http://' + catalogIP2 + ':' + catalogPort2 + '/update/' + row['ItemNumber'] + ':' + new_row['Stock']
+                        urlCatalog2 = 'http://' + catalogIP2 + ':' + catalogPort2 + '/update/' + row['ItemNumber'] + ':' + 'restock'
+                        r_catalog2 = requests.put(urlCatalog2, timeout = 5)
                         urlFrontEnd = 'http://' + frontEndIP + ':' + frontEndPort + '/invalidate/' + row['ItemNumber']
                     new_rows.append(new_row)
             fieldnames = ['ItemNumber', 'Title','Topic','Cost','Stock']
@@ -133,8 +136,11 @@ def restock():
                 writer.writeheader()
                 writer.writerows(new_rows)
             r_frontEnd = requests.delete(urlFrontEnd)
-            r_catalog2 = requests.put(urlCatalog2)
+        except requests.exceptions.Timeout:
+            change = False
+            print('timeout exception occured')
         except:
+            change = False
             print("File error occured\n")
         finally:
             lock.release() # Release the lock
@@ -146,6 +152,7 @@ def update(item_and_stock):
     item_number = item_and_stock.split(":")[0]
     new_stock = item_and_stock.split(":")[1]
     new_rows = []
+    ret_dict = {}
     lock.acquire()
     try:
         with open('catalog2.csv','r') as csvfile:
@@ -153,19 +160,23 @@ def update(item_and_stock):
             for row in catalogreader:
                 new_row = dict(row)
                 if row['ItemNumber'] == item_number:
-                    new_row['Stock'] = new_stock
-                    print('Updating stock for ' + row['Title'] + ' to ' + new_stock)
+                    if new_stock == 'buy':
+                        new_row['Stock'] = int(row['Stock']) - 1
+                    elif new_stock == 'restock':
+                        new_row['Stock'] = 50
+                    print('Updating stock for ' + row['Title'] + ' to ' + str(new_row['Stock']))
                 new_rows.append(new_row)
         fieldnames = ['ItemNumber', 'Title','Topic','Cost','Stock']
         with open('catalog2.csv', 'w') as csvfile: # Write changes to catalog file
             writer = csv.DictWriter(csvfile,fieldnames = fieldnames)
             writer.writeheader()
             writer.writerows(new_rows)
+        ret_dict['updated'] = True
     except:
         print("File error occured\n")
+        ret_dict['updated'] = False
     finally:
         lock.release() # Release the lock
-    ret_dict = {'updated' : True}
     return jsonify(ret_dict)
 
 if __name__ == "__main__":

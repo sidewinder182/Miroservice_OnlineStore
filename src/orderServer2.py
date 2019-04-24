@@ -16,7 +16,7 @@ with open('config.json') as json_file:
 	catalogPort2 = data['CatalogServer2'].split(":")[1]
 	orderIP1 = data['OrderServer1'].split(":")[0]
 	orderPort1 = data['OrderServer1'].split(":")[1]
-current_catalog_server = 0
+current_catalog_server = 1
 
 @orderServer2.route("/")
 def index():
