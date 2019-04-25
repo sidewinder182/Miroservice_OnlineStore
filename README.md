@@ -25,3 +25,19 @@ For example, to run the catalogServer use the command `python3 catalogServer.py`
 You may start the servers in any order. Once you severs are started you can start the client application using the command `python3 client.py`
 
 - Follow the client interface to perform the operations on Pygmy.com
+
+## Docker
+Before creating the docker images for the server files, make sure the config.json file is correctly configured with the IPs and ports of the respective servers. To create docker images for each of the server files, run the docker build command for each file as follows.
+
+```
+docker build . -f Dockerfile.catalog1 -t catalog1
+```
+
+To run the image, use the docker run command as follows.
+
+```
+docker run -p 8913:8913 catalog1
+```
+
+The port number for the -p argument (8913 in the above example) should be as mentioned in the config file.
+Note the client does not have a Dockerfile, only the servers do.
