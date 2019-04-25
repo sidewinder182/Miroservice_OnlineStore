@@ -1,0 +1,138 @@
+syncing
+ * Serving Flask app "orderServer1" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8911/ (Press CTRL+C to quit)
+192.168.0.9 - - [24/Apr/2019 22:22:44] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:22:44] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:22:54] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:22:55] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:22:59] "GET /buy/3 HTTP/1.1" 301 -
+chose catalog server 1 for buy
+Update request sent to orderServer2 to update orders file
+192.168.0.9 - - [24/Apr/2019 22:22:59] "GET /buy/3/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:05] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:23:05] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:15] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:23:15] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:25] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:23:25] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:35] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:23:35] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:46] "GET / HTTP/1.1" 200 -
+{'catalog1': 0, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:23:46] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:51] "POST /update_order/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:53] "GET /buy/4 HTTP/1.1" 301 -
+chose catalog server 2 for buy
+Update request sent to orderServer2 to update orders file
+192.168.0.9 - - [24/Apr/2019 22:23:53] "GET /buy/4/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:54] "POST /update_order/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:57] "GET / HTTP/1.1" 200 -
+{'catalog1': 0, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:23:57] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:08] "GET / HTTP/1.1" 200 -
+{'catalog1': 0, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:24:08] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:19] "GET / HTTP/1.1" 200 -
+{'catalog1': 0, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:24:19] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:30] "GET / HTTP/1.1" 200 -
+{'catalog1': 0, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:24:30] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:40] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:24:40] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:47] "GET /buy/5 HTTP/1.1" 301 -
+chose catalog server 1 for buy
+Update request sent to orderServer2 to update orders file
+192.168.0.9 - - [24/Apr/2019 22:24:47] "GET /buy/5/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:51] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:24:51] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:51] "POST /update_order/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:53] "GET /buy/2 HTTP/1.1" 301 -
+chose catalog server 2 for buy
+Update request sent to orderServer2 to update orders file
+192.168.0.9 - - [24/Apr/2019 22:24:53] "GET /buy/2/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:01] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:25:01] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:11] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:25:11] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:21] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:25:21] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:31] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 0}
+192.168.0.9 - - [24/Apr/2019 22:25:32] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:42] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 0}
+192.168.0.9 - - [24/Apr/2019 22:25:43] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:45] "GET /buy/7 HTTP/1.1" 301 -
+chose catalog server 1 for buy
+Cannot update orders  for orderServer2 since it is down
+192.168.0.9 - - [24/Apr/2019 22:25:45] "GET /buy/7/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:47] "GET /buy/7 HTTP/1.1" 301 -
+chose catalog server 2 for buy
+Cannot update orders  for orderServer2 since it is down
+192.168.0.9 - - [24/Apr/2019 22:25:47] "GET /buy/7/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:48] "GET /buy/7 HTTP/1.1" 301 -
+chose catalog server 1 for buy
+Cannot update orders  for orderServer2 since it is down
+192.168.0.9 - - [24/Apr/2019 22:25:49] "GET /buy/7/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:53] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 0}
+192.168.0.9 - - [24/Apr/2019 22:25:54] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:04] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 0}
+192.168.0.9 - - [24/Apr/2019 22:26:05] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:15] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 0}
+192.168.0.9 - - [24/Apr/2019 22:26:16] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:22] "GET /sync/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:26] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:26:26] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:32] "POST /update_order/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:33] "GET /buy/5 HTTP/1.1" 301 -
+chose catalog server 2 for buy
+Update request sent to orderServer2 to update orders file
+192.168.0.9 - - [24/Apr/2019 22:26:34] "GET /buy/5/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:35] "POST /update_order/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:37] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:26:37] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:47] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:26:47] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:57] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:26:57] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:27:07] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:27:07] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:27:17] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:27:17] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:27:27] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:27:27] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:27:37] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:27:37] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:27:47] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:27:47] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:27:57] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:27:58] "PUT /heartbeat/ HTTP/1.1" 200 -

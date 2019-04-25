@@ -1,0 +1,257 @@
+Welcome to Pygmy.com, the world's smallest book store!
+
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+1
+Please choose the topic you want to search for:
+ 1. Distributed Systems
+ 2. Graduate School
+ 3. Misc
+  Or press b to return to main menu
+3
+Results :
+Spring in the Pioneer Valley : 7
+
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+2
+Please enter an item number you wish to lookup:
+If you wish to go to the main menu press b
+2
+Cost : 15
+ItemNumber : 2
+Stock : 20
+Time : Wed, 24 Apr 2019 22:22:48 GMT
+Title : RPCs for Dummies
+Topic : DistributedSystems
+
+Please enter an item number you wish to lookup:
+If you wish to go to the main menu press b
+3
+Cost : 5
+ItemNumber : 3
+Stock : 29
+Time : Wed, 24 Apr 2019 22:22:53 GMT
+Title : Xen and the Art of Surviving Graduate School
+Topic : GraduateSchool
+
+Please enter an item number you wish to lookup:
+If you wish to go to the main menu press b
+3
+Cost : 5
+ItemNumber : 3
+Stock : 29
+Time : Wed, 24 Apr 2019 22:22:53 GMT
+Title : Xen and the Art of Surviving Graduate School
+Topic : GraduateSchool
+
+Please enter an item number you wish to lookup:
+If you wish to go to the main menu press b
+b
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+3
+Please enter an item number you wish to buy:
+If you wish to go to the main menu press b
+3
+Bought book Xen and the Art of Surviving Graduate School
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+2
+Please enter an item number you wish to lookup:
+If you wish to go to the main menu press b
+3
+Cost : 5
+ItemNumber : 3
+Stock : 28
+Time : Wed, 24 Apr 2019 22:23:04 GMT
+Title : Xen and the Art of Surviving Graduate School
+Topic : GraduateSchool
+
+Please enter an item number you wish to lookup:
+If you wish to go to the main menu press b
+b
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+3
+Please enter an item number you wish to buy:
+If you wish to go to the main menu press b
+4
+Bought book Cooking for the Impatient Graduate Student
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+3
+Please enter an item number you wish to buy:
+If you wish to go to the main menu press b
+4
+Bought book Cooking for the Impatient Graduate Student
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+3
+Please enter an item number you wish to buy:
+If you wish to go to the main menu press b
+5
+Bought book How to finish Project 3 on time
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+2
+Please enter an item number you wish to lookup:
+If you wish to go to the main menu press b
+4
+Cost : 12
+ItemNumber : 4
+Stock : 26
+Time : Wed, 24 Apr 2019 22:23:56 GMT
+Title : Cooking for the Impatient Graduate Student
+Topic : GraduateSchool
+
+Please enter an item number you wish to lookup:
+If you wish to go to the main menu press b
+b
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+3
+Please enter an item number you wish to buy:
+If you wish to go to the main menu press b
+5
+Bought book How to finish Project 3 on time
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+3
+Please enter an item number you wish to buy:
+If you wish to go to the main menu press b
+1
+Bought book How to get a good grade in 677 in 20 minutes a day
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+3
+Please enter an item number you wish to buy:
+If you wish to go to the main menu press b
+2
+Bought book RPCs for Dummies
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+2
+Please enter an item number you wish to lookup:
+If you wish to go to the main menu press b
+7
+Cost : 215
+ItemNumber : 7
+Stock : 46
+Time : Wed, 24 Apr 2019 22:25:37 GMT
+Title : Spring in the Pioneer Valley
+Topic : Misc
+
+Please enter an item number you wish to lookup:
+If you wish to go to the main menu press b
+7
+Cost : 215
+ItemNumber : 7
+Stock : 46
+Time : Wed, 24 Apr 2019 22:25:37 GMT
+Title : Spring in the Pioneer Valley
+Topic : Misc
+
+Please enter an item number you wish to lookup:
+If you wish to go to the main menu press b
+b
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+3
+Please enter an item number you wish to buy:
+If you wish to go to the main menu press b
+7
+Bought book Spring in the Pioneer Valley
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+3
+Please enter an item number you wish to buy:
+If you wish to go to the main menu press b
+7
+Bought book Spring in the Pioneer Valley
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+3
+Please enter an item number you wish to buy:
+If you wish to go to the main menu press b
+7
+Bought book Spring in the Pioneer Valley
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+2
+Please enter an item number you wish to lookup:
+If you wish to go to the main menu press b
+7
+Cost : 215
+ItemNumber : 7
+Stock : 43
+Time : Wed, 24 Apr 2019 22:25:51 GMT
+Title : Spring in the Pioneer Valley
+Topic : Misc
+
+Please enter an item number you wish to lookup:
+If you wish to go to the main menu press b
+b
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+3
+Please enter an item number you wish to buy:
+If you wish to go to the main menu press b
+4
+Bought book Cooking for the Impatient Graduate Student
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+3
+Please enter an item number you wish to buy:
+If you wish to go to the main menu press b
+5
+Bought book How to finish Project 3 on time
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title
+3
+Please enter an item number you wish to buy:
+If you wish to go to the main menu press b
+1
+Bought book How to get a good grade in 677 in 20 minutes a day
+Please select one of the following indices:
+ 1. Search for a topic
+ 2. Lookup a title with its item number
+ 3. Buy a title

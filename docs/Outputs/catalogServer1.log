@@ -1,0 +1,126 @@
+syncing
+unable to sync because catalogServer2 is not up
+Restock thread started
+ * Serving Flask app "catalogServer1" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8913/ (Press CTRL+C to quit)
+192.168.0.9 - - [24/Apr/2019 22:22:29] "GET /sync/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:22:41] "GET /search/Misc HTTP/1.1" 301 -
+192.168.0.9 - - [24/Apr/2019 22:22:41] "GET /search/Misc/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:22:44] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:22:44] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:22:52] "POST /restock/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:22:53] "GET /lookup/3 HTTP/1.1" 301 -
+192.168.0.9 - - [24/Apr/2019 22:22:53] "GET /lookup/3/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:22:54] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:22:55] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:22:59] "GET /lookup/3 HTTP/1.1" 301 -
+192.168.0.9 - - [24/Apr/2019 22:22:59] "GET /lookup/3/ HTTP/1.1" 200 -
+new stock = 28
+192.168.0.9 - - [24/Apr/2019 22:22:59] "POST /buy/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:05] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:23:05] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:15] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:23:15] "PUT /heartbeat/ HTTP/1.1" 200 -
+
+
+
+syncing
+Restock thread started
+ * Serving Flask app "catalogServer1" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8913/ (Press CTRL+C to quit)
+192.168.0.9 - - [24/Apr/2019 22:24:40] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:24:40] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:47] "GET /lookup/5 HTTP/1.1" 301 -
+192.168.0.9 - - [24/Apr/2019 22:24:47] "GET /lookup/5/ HTTP/1.1" 200 -
+new stock = 38
+192.168.0.9 - - [24/Apr/2019 22:24:47] "POST /buy/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:51] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:24:51] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:51] "GET /lookup/1 HTTP/1.1" 301 -
+192.168.0.9 - - [24/Apr/2019 22:24:51] "GET /lookup/1/ HTTP/1.1" 200 -
+new stock = 45
+192.168.0.9 - - [24/Apr/2019 22:24:51] "POST /buy/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:53] "PUT /update/2:buy HTTP/1.1" 301 -
+Updating stock for RPCs for Dummies to 19
+192.168.0.9 - - [24/Apr/2019 22:24:53] "PUT /update/2:buy/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:01] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:25:01] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:05] "POST /restock/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:11] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:25:11] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:21] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:25:21] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:31] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 0}
+192.168.0.9 - - [24/Apr/2019 22:25:32] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:35] "POST /restock/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:37] "GET /lookup/7 HTTP/1.1" 301 -
+192.168.0.9 - - [24/Apr/2019 22:25:37] "GET /lookup/7/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:42] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 0}
+192.168.0.9 - - [24/Apr/2019 22:25:43] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:45] "GET /lookup/7 HTTP/1.1" 301 -
+192.168.0.9 - - [24/Apr/2019 22:25:45] "GET /lookup/7/ HTTP/1.1" 200 -
+new stock = 45
+192.168.0.9 - - [24/Apr/2019 22:25:45] "POST /buy/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:47] "PUT /update/7:buy HTTP/1.1" 301 -
+Updating stock for Spring in the Pioneer Valley to 44
+192.168.0.9 - - [24/Apr/2019 22:25:47] "PUT /update/7:buy/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:48] "GET /lookup/7 HTTP/1.1" 301 -
+192.168.0.9 - - [24/Apr/2019 22:25:48] "GET /lookup/7/ HTTP/1.1" 200 -
+new stock = 43
+192.168.0.9 - - [24/Apr/2019 22:25:49] "POST /buy/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:53] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 0}
+192.168.0.9 - - [24/Apr/2019 22:25:54] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:04] "GET / HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:05] "POST /restock/ HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 0}
+192.168.0.9 - - [24/Apr/2019 22:26:05] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:15] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 0}
+192.168.0.9 - - [24/Apr/2019 22:26:16] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:26] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:26:26] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:31] "PUT /update/4:buy HTTP/1.1" 301 -
+Updating stock for Cooking for the Impatient Graduate Student to 25
+192.168.0.9 - - [24/Apr/2019 22:26:32] "PUT /update/4:buy/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:33] "PUT /update/5:buy HTTP/1.1" 301 -
+Updating stock for How to finish Project 3 on time to 37
+192.168.0.9 - - [24/Apr/2019 22:26:33] "PUT /update/5:buy/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:35] "GET /lookup/1 HTTP/1.1" 301 -
+192.168.0.9 - - [24/Apr/2019 22:26:35] "GET /lookup/1/ HTTP/1.1" 200 -
+new stock = 44
+192.168.0.9 - - [24/Apr/2019 22:26:35] "POST /buy/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:35] "POST /restock/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:37] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:26:37] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:47] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:26:47] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:57] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:26:57] "PUT /heartbeat/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:27:05] "POST /restock/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:27:07] "GET / HTTP/1.1" 200 -
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+192.168.0.9 - - [24/Apr/2019 22:27:07] "PUT /heartbeat/ HTTP/1.1" 200 -

@@ -1,0 +1,133 @@
+starting heartbeat thread
+ * Serving Flask app "frontEndServer" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8912/ (Press CTRL+C to quit)
+192.168.0.9 - - [24/Apr/2019 22:22:41] "GET /search/Misc HTTP/1.1" 301 -
+chose catalog server 1 for search
+192.168.0.9 - - [24/Apr/2019 22:22:41] "GET /search/Misc/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:22:48] "GET /lookup/2 HTTP/1.1" 301 -
+chose catalog server 2 for lookup
+192.168.0.9 - - [24/Apr/2019 22:22:48] "GET /lookup/2/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:22:53] "GET /lookup/3 HTTP/1.1" 301 -
+chose catalog server 1 for lookup
+192.168.0.9 - - [24/Apr/2019 22:22:53] "GET /lookup/3/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:22:55] "GET /lookup/3 HTTP/1.1" 301 -
+192.168.0.9 - - [24/Apr/2019 22:22:55] "GET /lookup/3/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:22:59] "GET /buy/3 HTTP/1.1" 301 -
+chose order server 1 for buy
+192.168.0.9 - - [24/Apr/2019 22:22:59] "DELETE /invalidate/3 HTTP/1.1" 301 -
+entered invalidate
+invalidated
+192.168.0.9 - - [24/Apr/2019 22:22:59] "DELETE /invalidate/3/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:22:59] "GET /buy/3/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:04] "GET /lookup/3 HTTP/1.1" 301 -
+chose catalog server 2 for lookup
+192.168.0.9 - - [24/Apr/2019 22:23:04] "GET /lookup/3/ HTTP/1.1" 200 -
+catalog1 down
+192.168.0.9 - - [24/Apr/2019 22:23:51] "GET /buy/4 HTTP/1.1" 301 -
+chose order server 2 for buy
+192.168.0.9 - - [24/Apr/2019 22:23:51] "DELETE /invalidate/4 HTTP/1.1" 301 -
+entered invalidate
+invalidated
+192.168.0.9 - - [24/Apr/2019 22:23:51] "DELETE /invalidate/4/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:51] "GET /buy/4/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:53] "GET /buy/4 HTTP/1.1" 301 -
+chose order server 1 for buy
+192.168.0.9 - - [24/Apr/2019 22:23:53] "DELETE /invalidate/4 HTTP/1.1" 301 -
+entered invalidate
+invalidated
+192.168.0.9 - - [24/Apr/2019 22:23:53] "DELETE /invalidate/4/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:53] "GET /buy/4/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:54] "GET /buy/5 HTTP/1.1" 301 -
+chose order server 2 for buy
+192.168.0.9 - - [24/Apr/2019 22:23:54] "DELETE /invalidate/5 HTTP/1.1" 301 -
+entered invalidate
+invalidated
+192.168.0.9 - - [24/Apr/2019 22:23:54] "DELETE /invalidate/5/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:54] "GET /buy/5/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:23:56] "GET /lookup/4 HTTP/1.1" 301 -
+chose catalog server 2 for lookup
+192.168.0.9 - - [24/Apr/2019 22:23:56] "GET /lookup/4/ HTTP/1.1" 200 -
+catalog1 down
+catalog1 down
+catalog1 down
+catalog1 down
+192.168.0.9 - - [24/Apr/2019 22:24:47] "GET /buy/5 HTTP/1.1" 301 -
+chose order server 1 for buy
+192.168.0.9 - - [24/Apr/2019 22:24:47] "DELETE /invalidate/5 HTTP/1.1" 301 -
+entered invalidate
+invalidated
+192.168.0.9 - - [24/Apr/2019 22:24:47] "DELETE /invalidate/5/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:47] "GET /buy/5/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:51] "GET /buy/1 HTTP/1.1" 301 -
+chose order server 2 for buy
+192.168.0.9 - - [24/Apr/2019 22:24:51] "DELETE /invalidate/1 HTTP/1.1" 301 -
+entered invalidate
+invalidated
+192.168.0.9 - - [24/Apr/2019 22:24:51] "DELETE /invalidate/1/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:51] "GET /buy/1/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:53] "GET /buy/2 HTTP/1.1" 301 -
+chose order server 1 for buy
+192.168.0.9 - - [24/Apr/2019 22:24:53] "DELETE /invalidate/2 HTTP/1.1" 301 -
+entered invalidate
+invalidated
+192.168.0.9 - - [24/Apr/2019 22:24:53] "DELETE /invalidate/2/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:24:53] "GET /buy/2/ HTTP/1.1" 200 -
+order2 down
+192.168.0.9 - - [24/Apr/2019 22:25:37] "GET /lookup/7 HTTP/1.1" 301 -
+chose catalog server 1 for lookup
+192.168.0.9 - - [24/Apr/2019 22:25:37] "GET /lookup/7/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:42] "GET /lookup/7 HTTP/1.1" 301 -
+192.168.0.9 - - [24/Apr/2019 22:25:42] "GET /lookup/7/ HTTP/1.1" 200 -
+order2 down
+192.168.0.9 - - [24/Apr/2019 22:25:45] "GET /buy/7 HTTP/1.1" 301 -
+chose order server 1 for buy
+192.168.0.9 - - [24/Apr/2019 22:25:45] "DELETE /invalidate/7 HTTP/1.1" 301 -
+entered invalidate
+invalidated
+192.168.0.9 - - [24/Apr/2019 22:25:45] "DELETE /invalidate/7/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:45] "GET /buy/7/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:47] "GET /buy/7 HTTP/1.1" 301 -
+chose order server 1 for buy
+192.168.0.9 - - [24/Apr/2019 22:25:47] "DELETE /invalidate/7 HTTP/1.1" 301 -
+entered invalidate
+invalidated
+192.168.0.9 - - [24/Apr/2019 22:25:47] "DELETE /invalidate/7/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:47] "GET /buy/7/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:48] "GET /buy/7 HTTP/1.1" 301 -
+chose order server 1 for buy
+192.168.0.9 - - [24/Apr/2019 22:25:49] "DELETE /invalidate/7 HTTP/1.1" 301 -
+entered invalidate
+invalidated
+192.168.0.9 - - [24/Apr/2019 22:25:49] "DELETE /invalidate/7/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:49] "GET /buy/7/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:25:51] "GET /lookup/7 HTTP/1.1" 301 -
+chose catalog server 2 for lookup
+192.168.0.9 - - [24/Apr/2019 22:25:51] "GET /lookup/7/ HTTP/1.1" 200 -
+order2 down
+order2 down
+order2 down
+192.168.0.9 - - [24/Apr/2019 22:26:31] "GET /buy/4 HTTP/1.1" 301 -
+chose order server 2 for buy
+192.168.0.9 - - [24/Apr/2019 22:26:32] "DELETE /invalidate/4 HTTP/1.1" 301 -
+entered invalidate
+invalidated
+192.168.0.9 - - [24/Apr/2019 22:26:32] "DELETE /invalidate/4/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:32] "GET /buy/4/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:33] "GET /buy/5 HTTP/1.1" 301 -
+chose order server 1 for buy
+192.168.0.9 - - [24/Apr/2019 22:26:33] "DELETE /invalidate/5 HTTP/1.1" 301 -
+entered invalidate
+invalidated
+192.168.0.9 - - [24/Apr/2019 22:26:34] "DELETE /invalidate/5/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:34] "GET /buy/5/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:35] "GET /buy/1 HTTP/1.1" 301 -
+chose order server 2 for buy
+192.168.0.9 - - [24/Apr/2019 22:26:35] "DELETE /invalidate/1 HTTP/1.1" 301 -
+entered invalidate
+invalidated
+192.168.0.9 - - [24/Apr/2019 22:26:35] "DELETE /invalidate/1/ HTTP/1.1" 200 -
+192.168.0.9 - - [24/Apr/2019 22:26:35] "GET /buy/1/ HTTP/1.1" 200 -
