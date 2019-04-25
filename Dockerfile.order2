@@ -1,0 +1,11 @@
+FROM python:3-alpine
+
+WORKDIR /app
+
+COPY ./src /app
+
+RUN pip install flask requests
+
+EXPOSE 8915
+
+CMD python -u orderServer2.py
