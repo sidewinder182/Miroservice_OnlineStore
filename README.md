@@ -5,7 +5,7 @@ The system runs on Python 3. Please make sure you have any version of Python 3 i
 Install the following packages before running the system:
 - Flask
 - requests
--Flask-Caching
+- Flask-Caching
 
 ## Steps to run the system
 - Please configure the config file - 'config.json' with the IP of the machine on which the respective server will run and port number you wish to run it on.
