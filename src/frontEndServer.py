@@ -8,8 +8,6 @@ import random
 import threading
 import time
 
-# cache = {}
-
 
 frontEndServer = Flask(__name__)
 cache = Cache(frontEndServer, config={'CACHE_TYPE': 'simple'})
@@ -23,9 +21,9 @@ with open('config.json') as json_file:
 	catalogPort2 = data['CatalogServer2'].split(":")[1]
 	orderIP2 = data['OrderServer2'].split(":")[0]# # IP, port number of the order server replica 2
 	orderPort2 = data['OrderServer2'].split(":")[1]
-current_order_server = 0
-current_catalog_server = 0
-flags = {}
+current_order_server = 0	# This flag decides which order server must be requested on a round robin basis
+current_catalog_server = 0	# This flag decides which catalog server must be requested on a round robin basis
+flags = {}		#	This dictionary contains flags to track the state of all the backend servers
 flags['catalog1'] = 1
 flags['catalog2'] = 1
 flags['order1'] = 1
@@ -44,8 +42,8 @@ def index():
 @frontEndServer.route("/search/<string:topic>/",methods=['GET'])
 @cache.memoize(timeout = 100)
 def search(topic):
-	'''This method forwards an incoming search request to the catalog server, and returns the response received
-	from it to the caller.'''
+	'''This method forwards an incoming search request to one of the replicas of the catalog server in a round robin manner.
+	 If one replica is down Then all requests are routed to the other replica'''
 	global current_catalog_server, flags
 	if current_catalog_server == 0 and flags['catalog1'] == 1:
 		current_catalog_server = 1
@@ -67,7 +65,8 @@ def search(topic):
 @frontEndServer.route("/lookup/<string:itemNumber>/",methods = ['GET'])
 @cache.memoize(timeout = 100)
 def lookup(itemNumber):
-	'''This method forwards an incoming lookup request to the catalog server, and returns the response received
+	'''This method forwards an incoming lookup request to one of the replicas of the catalog server in a round robin manner.
+	 If one replica is down Then all requests are routed to the other replica'''
 	from it to the caller.'''
 	global current_catalog_server, flags
 	if current_catalog_server == 0 and flags['catalog1'] == 1:
@@ -96,8 +95,8 @@ def lookup(itemNumber):
 
 @frontEndServer.route("/buy/<string:itemNumber>/",methods=['GET'])
 def buy(itemNumber):
-	'''This method forwards an incoming buy request to the order server, and returns the response received
-	from it to the caller.'''
+	'''This method forwards an incoming buy request to one of the order server replicas in
+	a round robin manner. In case one order server is down all requests are routed to the other server'''
 	global current_order_server, flags
 	if current_order_server == 0 and flags['order1'] == 1:
 		current_order_server = 1
@@ -125,6 +124,8 @@ def buy(itemNumber):
 
 @frontEndServer.route("/invalidate/<string:itemNumber>/",methods=['DELETE'])
 def invalidate(itemNumber):
+	'''This method is used to invalidate a cache entry. It is called by the catalog server every time a write
+	is made to the catalog file'''
 	print('entered invalidate')
 	response_dict = {'invalidated' : False}
 	cache.delete_memoized(lookup, itemNumber)
@@ -133,6 +134,9 @@ def invalidate(itemNumber):
 	return jsonify(response_dict)
 
 def heartbeat():
+	'''The heart beat method runs as a separate thread when the frontEndServer is started. It constantly
+	monitors whether all the backend servers are active. On change of status it informs all other backend
+	servers of the change.'''
 	global flags, urls
 	print('starting heartbeat thread')
 	while True:

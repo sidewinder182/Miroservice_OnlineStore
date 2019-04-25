@@ -10,13 +10,13 @@ lock = threading.Lock()
 catalogServer2 = Flask(__name__)
 with open('config.json') as json_file:
 	data = json.load(json_file)
-	catalogIP1 = data['CatalogServer1'].split(":")[0] # IP and port number of the catalog server, useful to trigger the restock method
+	catalogIP1 = data['CatalogServer1'].split(":")[0] # IP and port number of the catalog server 1, useful to trigger the restock method
 	catalogPort1 = data['CatalogServer1'].split(":")[1]
-	frontEndIP = data['FrontEndServer'].split(":")[0] # IP and port number of the catalog server, useful to trigger the restock method
+	frontEndIP = data['FrontEndServer'].split(":")[0] # IP and port number of the frontEnd server
 	frontEndPort = data['FrontEndServer'].split(":")[1]
-	catalogIP2 = data['CatalogServer2'].split(":")[0] # IP and port number of the catalog server, useful to trigger the restock method
+	catalogIP2 = data['CatalogServer2'].split(":")[0] # IP and port number of the catalog server 2, useful to trigger the update method
 	catalogPort2 = data['CatalogServer2'].split(":")[1]
-flags = {}
+flags = {}	#	This dictionary contains flags to track the state of all the backend servers
 flags['catalog1'] = 1
 flags['catalog2'] = 1
 flags['order1'] = 1
@@ -75,7 +75,6 @@ def buy():
 		with open('catalog2.csv','r') as csvfile: # Read catalog file, check for match with the specified item number and check its stock
 			catalogreader = csv.DictReader(csvfile)
 			for row in catalogreader:
-				# print(row)
 				new_row = dict(row)
 				if row['ItemNumber'] == item_number and int(row['Stock']) > 0: # If match and in stock, decrement stock value
 					new_row['Stock'] = str(int(row['Stock']) - 1)
@@ -162,6 +161,7 @@ def restock():
 
 @catalogServer2.route("/update/<string:item_and_stock>/",methods=['PUT'])
 def update(item_and_stock):
+	'''This method is used to update the catalog file  when the other catalogServer replica writes to its catalog file.'''
 	item_number = item_and_stock.split(":")[0]
 	new_stock = item_and_stock.split(":")[1]
 	new_rows = []
@@ -194,6 +194,8 @@ def update(item_and_stock):
 
 @catalogServer2.route("/heartbeat/",methods=['PUT'])
 def heartbeat():
+	'''This method is called by the frontEndServer when there is a change in state of any other
+	backend server. This allows the order server to reroute any requests to the server that is down.'''
 	global flags
 	posted_json = request.get_json()
 	flags = json.loads(posted_json)
@@ -202,6 +204,8 @@ def heartbeat():
 
 @catalogServer2.route("/sync/",methods=['GET'])
 def sync():
+	'''This method is called on startup by the other replica. This migrates the state of this server to
+	 the other in case of failure and recovery'''
 	a = []
 	lock.acquire()
 	try:
@@ -212,7 +216,6 @@ def sync():
 		print("File Error")
 	finally:
 		lock.release()
-	# print(a)
 	return jsonify(a)
 
 if __name__ == "__main__":
@@ -221,11 +224,9 @@ if __name__ == "__main__":
 		sync_url = 'http://' + catalogIP1 + ':' + catalogPort1 + '/sync/'
 		sync_request = requests.get(sync_url, timeout = 10)
 		sync_data = sync_request.json()
-		# print(sync_data)
 		fieldnames = ['ItemNumber', 'Title','Topic','Cost','Stock']
 		f = open("catalog2.csv", "w")
 		writer = csv.DictWriter(f, fieldnames=fieldnames)
-		# writer.writeheader()
 		writer.writerows(sync_data)
 		f.close()
 	except(requests.exceptions.ConnectionError):
