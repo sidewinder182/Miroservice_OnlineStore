@@ -153,7 +153,7 @@ def restock():
 			change = False
 			print('timeout exception occured')
 		except:
-			print("File error occured\n"
+			print("File error occured\n")
 			change = False
 		finally:
 			lock.release() # Release the lock

@@ -1,0 +1,7 @@
+syncing
+Restock thread started
+ * Serving Flask app "catalogServer2" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off

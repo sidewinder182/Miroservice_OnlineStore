@@ -1,0 +1,190 @@
+Welcome to Pygmy.com, the world's smallest book store!
+
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please choose the topic you want to search for:
+ 1. Distributed Systems 
+ 2. Graduate School
+ 3. Misc 
+  Or press b to return to main menu
+Results :
+Cooking for the Impatient Graduate Student : 4
+Why theory classes are so hard : 6
+Xen and the Art of Surviving Graduate School : 3
+
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to lookup: 
+If you wish to go to the main menu press b
+Cost : 15
+ItemNumber : 2
+Stock : 22
+Time : Wed, 24 Apr 2019 22:00:00 GMT
+Title : RPCs for Dummies
+Topic : DistributedSystems
+
+Please enter an item number you wish to lookup: 
+If you wish to go to the main menu press b
+Cost : 15
+ItemNumber : 2
+Stock : 22
+Time : Wed, 24 Apr 2019 22:00:00 GMT
+Title : RPCs for Dummies
+Topic : DistributedSystems
+
+Please enter an item number you wish to lookup: 
+If you wish to go to the main menu press b
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book RPCs for Dummies
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to lookup: 
+If you wish to go to the main menu press b
+Cost : 15
+ItemNumber : 2
+Stock : 21
+Time : Wed, 24 Apr 2019 22:00:17 GMT
+Title : RPCs for Dummies
+Topic : DistributedSystems
+
+Please enter an item number you wish to lookup: 
+If you wish to go to the main menu press b
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book Cooking for the Impatient Graduate Student
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book How to finish Project 3 on time
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book Why theory classes are so hard
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to lookup: 
+If you wish to go to the main menu press b
+Cost : 25
+ItemNumber : 5
+Stock : 42
+Time : Wed, 24 Apr 2019 22:01:01 GMT
+Title : How to finish Project 3 on time
+Topic : DistributedSystems
+
+Please enter an item number you wish to lookup: 
+If you wish to go to the main menu press b
+Cost : 12
+ItemNumber : 4
+Stock : 29
+Time : Wed, 24 Apr 2019 22:01:02 GMT
+Title : Cooking for the Impatient Graduate Student
+Topic : GraduateSchool
+
+Please enter an item number you wish to lookup: 
+If you wish to go to the main menu press b
+Cost : 75
+ItemNumber : 6
+Stock : 48
+Time : Wed, 24 Apr 2019 22:01:03 GMT
+Title : Why theory classes are so hard
+Topic : GraduateSchool
+
+Please enter an item number you wish to lookup: 
+If you wish to go to the main menu press b
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book How to finish Project 3 on time
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book How to get a good grade in 677 in 20 minutes a day
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book Why theory classes are so hard
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book Cooking for the Impatient Graduate Student
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book How to get a good grade in 677 in 20 minutes a day
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book Why theory classes are so hard
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book Spring in the Pioneer Valley
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book How to get a good grade in 677 in 20 minutes a day
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book How to finish Project 3 on time
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title
+Please enter an item number you wish to buy: 
+If you wish to go to the main menu press b
+Bought book Spring in the Pioneer Valley
+Please select one of the following indices:
+ 1. Search for a topic 
+ 2. Lookup a title with its item number 
+ 3. Buy a title

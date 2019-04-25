@@ -1,0 +1,15 @@
+syncing
+unable to sync because catalogServer2 is not up
+Restock thread started
+ * Serving Flask app "catalogServer1" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+syncing
+ * Serving Flask app "catalogServer1" (lazy loading)
+Restock thread started
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off

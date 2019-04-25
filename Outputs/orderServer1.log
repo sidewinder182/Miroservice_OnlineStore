@@ -1,0 +1,20 @@
+syncing
+unable to sync because orderServer1 is not up
+ * Serving Flask app "orderServer1" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+chose catalog server 1 for buy
+Update request sent to orderServer2 to update orders file
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+{'catalog1': 1, 'catalog2': 1, 'order1': 1, 'order2': 1}
+syncing
+ * Serving Flask app "orderServer1" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off

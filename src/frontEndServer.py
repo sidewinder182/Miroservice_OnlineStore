@@ -66,8 +66,7 @@ def search(topic):
 @cache.memoize(timeout = 100)
 def lookup(itemNumber):
 	'''This method forwards an incoming lookup request to one of the replicas of the catalog server in a round robin manner.
-	 If one replica is down Then all requests are routed to the other replica'''
-	from it to the caller.'''
+	 If one replica is down Then all requests are routed to the other replica from it to the caller.'''
 	global current_catalog_server, flags
 	if current_catalog_server == 0 and flags['catalog1'] == 1:
 		current_catalog_server = 1
